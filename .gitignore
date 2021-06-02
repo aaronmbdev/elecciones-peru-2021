@@ -69,6 +69,7 @@ google-services.json
 
 #Seguridad
 app/src/main/res/values/strings.xml
+app/google-services.json
 
 # Freeline
 freeline.py

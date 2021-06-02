@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ public class Main extends AppCompatActivity {
     private TextView cargando,ctexto,mesa,dni,nombre;
     private ImageView imagen;
     private ProgressBar bar;
+    private Button launchScanner;
 
 
     @Override
@@ -63,6 +65,7 @@ public class Main extends AppCompatActivity {
         cargando = findViewById(R.id.cargando);
         ctexto = findViewById(R.id.ctexto);
         bar = findViewById(R.id.bar);
+        launchScanner = findViewById(R.id.escanear);
 
         buscarbtn.setOnClickListener(v -> {
             triggerSearch();
@@ -76,6 +79,7 @@ public class Main extends AppCompatActivity {
             ctexto.setText("Se está descargando la información desde un servidor seguro. La aplicación estará disponible tan pronto termine");
             buscarbtn.setEnabled(false);
             input.setEnabled(false);
+            launchScanner.setEnabled(false);
             if(NetworkCheck.isConnect(getApplicationContext())) {
                 getRemoteData();
             } else {
@@ -90,6 +94,7 @@ public class Main extends AppCompatActivity {
                 builder.show();
             }
         } else {
+            launchScanner.setEnabled(true);
             cargando.setText("Base de datos cargada");
             ctexto.setText("");
             bar.setVisibility(View.INVISIBLE);

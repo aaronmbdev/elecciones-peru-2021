@@ -12,7 +12,8 @@ android {
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
-
+    apply plugin: 'com.android.application'
+    apply plugin: 'com.google.gms.google-services'
     buildTypes {
         release {
             minifyEnabled true
@@ -31,6 +32,8 @@ android {
 /* IMPORTANT :
  * Be careful when update dependencies, different version library may caused error */
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-analytics'
     def room_version = "2.2.6"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.multidex:multidex:2.0.1'
@@ -53,6 +56,8 @@ dependencies {
 
     implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'
     implementation 'com.android.volley:volley:1.1.1'
+
+    implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.0.1'
 
 
 
